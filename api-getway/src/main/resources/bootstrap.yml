@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: api-getway
+  config:
+    discovery:
+      service-id: CONFIG
+      enabled: true
+    profile: dev
+# 在使用zuul时，访问原来的接口，需要zuul的地址 + 服务名字 + 服务接口
+# 这里将product服务映射为myProduct的访问路径
+zuul:
+#  routes:
+#    myProduct:
+#      path: /myProduct/**
+#      serviceId: product
+#      sensitiveHeaders: # 敏感头设置，允许cookie信息的传递
+# 禁用 元访问路径 和 映射访问路径 中某个接口的访问，也可以使用 /**/product/getProductInfoByProductId 来表示
+#  ignored-patterns:
+#    - /myProduct/product/getProductInfoByProductId
+#    - /product/product/getProductInfoByProductId
+  sensitive-headers: # 忽略全部服务的敏感头，所有的cookie都能返回
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+ # 可以使用下面的方式打开权限，来查看所有的访问映射，但是这个已经被废弃了
+#management:
+#  security:
+#    enabled: false

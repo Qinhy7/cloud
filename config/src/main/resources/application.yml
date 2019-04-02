@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          username: qinhy_7@163.com
+          password: qqmn3216renhe
+          uri: https://gitee.com/qinhy7/SpringCloudTest
+          basedir: F:\dev\workspace\idea2\cloud\config\baseDir
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+# 暴露 bus-refresh 等接口，实现自动刷新
+management:
+  endpoints:
+    web:
+      expose: "*"

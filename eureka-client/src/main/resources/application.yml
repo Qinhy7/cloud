@@ -1,0 +1,14 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+spring:
+  application:
+    name: eureka-client
+info:
+  app.name: toni-springcloud
+  company.name: www.toni.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+server:
+  port: 8080

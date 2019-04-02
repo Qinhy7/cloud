@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: user
+#    datasource:
+#      driver-class-name: com.mysql.jdbc.Driver
+#      url: jdbc:mysql://192.168.1.112:3306/sell?useSSL=false&serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8
+#      username: root
+#      password: 123456
+  cloud:
+    config:
+      discovery:
+        service-id: CONFIG
+        enabled: true
+      profile: dev
+#  redis:
+#    host: 192.168.1.112
+#    port: 6379
+#    password: 123456
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

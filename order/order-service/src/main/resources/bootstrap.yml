@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: order
+
+# 对消息进行分组，在order启动多个实例时，发送的消息只能被一个实例接收
+  cloud:
+    stream:
+      bindings:
+        myMessage: # 队列的名称
+          group: order
+          content-type: application/json  #在mq的控制台显示发送对象的json格式
+    config:
+      discovery:
+        service-id: CONFIG
+        enabled: true
+      profile: dev
+# 配置rabbitmq的连接信息
+#  rabbitmq:
+#    host: host
+#    username: guest
+#    password: guest
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
